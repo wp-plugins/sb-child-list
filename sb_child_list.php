@@ -6,7 +6,7 @@
  Author: Sean Barton (Tortoise IT)
  Plugin URI: http://www.sean-barton.co.uk
  Author URI: http://www.sean-barton.co.uk
- Version: 4.3
+ Version: 4.4
  */
 
 $sb_cl_dir = str_replace('\\', '/', dirname(__FILE__));
@@ -216,8 +216,8 @@ function sb_cl_get_cat_id_from_name($cat) {
         $sql = 'SELECT term_id
                 FROM ' . $wpdb->prefix . 'terms
                 WHERE
-                    name LIKE "' . mysql_real_escape_string($cat) . '"
-                    OR slug LIKE "' . mysql_real_escape_string($cat) . '"
+                    name LIKE "' . esc_sql($cat) . '"
+                    OR slug LIKE "' . esc_sql($cat) . '"
         ';
         $cat_id = $wpdb->get_var($sql);
 
